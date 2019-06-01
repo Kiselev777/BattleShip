@@ -1,4 +1,11 @@
 package sample;
+/**
+ *
+ *
+ *           VERSION 1.0.0
+ *            Battlehip
+ *           Kiselev Ivan
+ */
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -9,7 +16,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -24,10 +30,11 @@ public class Main extends Application {
     private void computer() {
         while (eTurn) {
             Random rand = new Random();
+            boolean t=true;
             int x = rand.nextInt(10);
             int y = rand.nextInt(10);
             Cell cell = myBattle.getCell(x, y);
-            if (cell.damage())
+            if (cell.isShoot)
                 continue;
             eTurn = cell.damage();
             if (myBattle.countShip == 0) {
@@ -93,7 +100,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
-
     }
 
 
