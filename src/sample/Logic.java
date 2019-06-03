@@ -17,7 +17,7 @@ public class Logic {
     private int[] deck = {1, 1, 1, 1, 2, 2, 2, 3, 3, 4};
 
 
-    private void computer() throws InterruptedException {
+    private void computer() {
         while (eTurn) {
             Random rand = new Random();
             int x = rand.nextInt(10);
@@ -46,7 +46,7 @@ public class Logic {
         System.out.println("The game is start");
     }
 
-    void effect() throws IOException {
+    void effect() {
         enemyBattle = new Battle(true, e -> {
             Cell cell = (Cell) e.getSource();
             if (!flag)
@@ -55,11 +55,7 @@ public class Logic {
                 return;
             eTurn = !cell.damage();
             if (eTurn) {
-                try {
                     computer();
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
             }
             if (enemyBattle.countShip == 0) {
                 System.out.println("ЭТО ПОБЕДА");
@@ -80,7 +76,7 @@ public class Logic {
         });
 
     }
-    Parent setPane() throws IOException {
+    Parent setPane() {
         VBox vBox=new VBox(75, myBattle, enemyBattle);
         vBox.setAlignment(Pos.CENTER);
         BorderPane pane = new BorderPane();
