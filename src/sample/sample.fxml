@@ -63,6 +63,9 @@
             </Text>
             <Text fill="#cd2424" layoutX="822.0" layoutY="694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="После надписи в верхнем углу" />
             <Text fill="#dd1f1f" layoutX="799.0" layoutY="711.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Можете стрелять по полю противника" />
+            <Text layoutX="811.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="812.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Левая кнопка мыши-вертикально" />
+            <Text layoutX="804.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Правая кнопка мыши-горизонтально" />
          </children>
       </AnchorPane>
    </children>
