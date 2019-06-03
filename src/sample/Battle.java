@@ -101,8 +101,7 @@ public class Battle extends Parent {
                     return false;
 
                 Cell[] cells = getCells(i, y,ship);
-                for (int i1 = 0, cellsLength = cells.length; i1 < cellsLength; i1++) {
-                    Cell neighbor = cells[i1];
+                for (Cell neighbor : cells) {
                     if (!isTruePoint(i, y))
                         return false;
 

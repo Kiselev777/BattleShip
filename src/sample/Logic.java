@@ -47,7 +47,7 @@ public class Logic {
         System.out.println("The game is start");
     }
 
-    public void effect() throws IOException {
+    void effect() throws IOException {
         enemyBattle = new Battle(true, e -> {
             Cell cell = (Cell) e.getSource();
             if (!flag)
@@ -81,7 +81,7 @@ public class Logic {
         });
 
     }
-    public Parent setPane() throws IOException {
+    Parent setPane() throws IOException {
         VBox vBox=new VBox(75, myBattle, enemyBattle);
         vBox.setAlignment(Pos.CENTER);
         BorderPane pane = new BorderPane();
