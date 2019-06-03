@@ -12,14 +12,9 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
@@ -28,12 +23,10 @@ public class Main extends Application {
     private Battle enemyBattle, myBattle;
     private int countShip = 10;
     private boolean eTurn;
-    private Cell c;
-    private boolean t = false;
     private int[] deck = {1, 1, 1, 1, 2, 2, 2, 3, 3, 4};
 
 
-    private void computer() {
+    private void computer() throws InterruptedException {
         while (eTurn) {
             Random rand = new Random();
             int x = rand.nextInt(10);
@@ -44,6 +37,7 @@ public class Main extends Application {
             eTurn = cell.damage();
             if (myBattle.countShip == 0) {
                 System.out.println("Проиграл...");
+                Thread.sleep(1000);
                 System.exit(0);
             }
         }
@@ -71,11 +65,20 @@ public class Main extends Application {
             if (cell.isShoot)
                 return;
             eTurn = !cell.damage();
-            if (eTurn)
-                computer();
+            if (eTurn) {
+                try {
+                    computer();
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
             if (enemyBattle.countShip == 0) {
                 System.out.println("ЭТО ПОБЕДА");
-
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
                 System.exit(0);
             }
 

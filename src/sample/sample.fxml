@@ -18,7 +18,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #66CDAA;">
+      <AnchorPane prefHeight="890.0" prefWidth="1090.0" style="-fx-background-color: #66CDAA;">
          <children>
             <Label layoutX="38.0" layoutY="72.0" prefHeight="91.0" prefWidth="166.0" text="My battle">
                <font>
