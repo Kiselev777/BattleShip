@@ -53,11 +53,18 @@ public class Battle extends Parent {
         return x >= 0 && x < 10 && y >= 0 && y < 10;
     }
 
-    private Cell[] getCells(int x, int y) {
-        Point2D[] points = new Point2D[]{new Point2D(x - 1, y), new Point2D(x + 1, y), new Point2D(x, y - 1),
-                new Point2D(x, y + 1), new Point2D(x + 1, y + 1), new Point2D(x - 1, y - 1)
-        };
-
+    private Cell[] getCells(int x, int y,Ship ship) {
+        Point2D[] points;
+        if (ship.side){
+            points= new Point2D[]{new Point2D(x - 1, y), new Point2D(x + 1, y), new Point2D(x, y - 1),
+                    new Point2D(x, y + 1), new Point2D(x - 1, y + 1), new Point2D(x - 1, y - 1),
+            new Point2D(x+ship.deck,y-1),new Point2D(x+ship.deck,y+1)};
+        }
+        else {
+            points=new Point2D[]{new Point2D(x - 1, y), new Point2D(x + 1, y), new Point2D(x, y - 1),
+                    new Point2D(x, y + 1), new Point2D(x + 1, y - 1), new Point2D(x - 1, y - 1),
+                    new Point2D(x-1,y+ship.deck),new Point2D(x+1,y-ship.deck)};
+        }
         return Arrays.stream(points).filter(this::isTruePoint).map(p -> getCell((int) p.getX(),
                 (int) p.getY())).toArray(Cell[]::new);
     }
@@ -74,7 +81,7 @@ public class Battle extends Parent {
                 if (cell.ship != null)
                     return false;
 
-                Cell[] cells = getCells(x, i);
+                Cell[] cells = getCells(x, i,ship);
                 for (Cell neighbor : cells) {
                     if (!isTruePoint(x, i))
                         return false;
@@ -93,7 +100,7 @@ public class Battle extends Parent {
                 if (cell.ship != null)
                     return false;
 
-                Cell[] cells = getCells(i, y);
+                Cell[] cells = getCells(i, y,ship);
                 for (int i1 = 0, cellsLength = cells.length; i1 < cellsLength; i1++) {
                     Cell neighbor = cells[i1];
                     if (!isTruePoint(i, y))
