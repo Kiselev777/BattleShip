@@ -3,8 +3,11 @@ package sample;
 
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.geometry.Point2D;
@@ -22,19 +25,19 @@ public class Battle extends Parent {
 
 
     public Battle(boolean enemy, EventHandler<? super MouseEvent> handler) {
-            this.turn = enemy;
-            for (int y = 0; y < 10; y++) {
-                HBox line = new HBox();
-                for (int x = 0; x < 10; x++) {
-                    Cell c = new Cell(x, y, this);
-                    c.setOnMouseClicked(handler);
-                    line.getChildren().add(c);
-                }
-
-                lines.getChildren().add(line);
+        this.turn = enemy;
+        for (int y = 0; y < 10; y++) {
+            HBox line = new HBox();
+            for (int x = 0; x < 10; x++) {
+                Cell c = new Cell(x, y, this);
+                c.setOnMouseClicked(handler);
+                line.getChildren().add(c);
             }
 
-            getChildren().add(lines);
+            lines.getChildren().add(line);
+        }
+
+        getChildren().add(lines);
     }
 
     Cell getCell(int x, int y) {
@@ -51,14 +54,12 @@ public class Battle extends Parent {
     }
 
     private Cell[] getCells(int x, int y) {
-        Point2D[] points = new Point2D[]{
-                new Point2D(x - 1, y),
-                new Point2D(x + 1, y),
-                new Point2D(x, y - 1),
-                new Point2D(x, y + 1)
+        Point2D[] points = new Point2D[]{new Point2D(x - 1, y), new Point2D(x + 1, y), new Point2D(x, y - 1),
+                new Point2D(x, y + 1), new Point2D(x + 1, y + 1), new Point2D(x - 1, y - 1)
         };
 
-        return Arrays.stream(points).filter(this::isTruePoint).map(p -> getCell((int) p.getX(), (int) p.getY())).toArray(Cell[]::new);
+        return Arrays.stream(points).filter(this::isTruePoint).map(p -> getCell((int) p.getX(),
+                (int) p.getY())).toArray(Cell[]::new);
     }
 
     private boolean canPlace(Ship ship, int x, int y) {
@@ -93,7 +94,8 @@ public class Battle extends Parent {
                     return false;
 
                 Cell[] cells = getCells(i, y);
-                for (Cell neighbor : cells) {
+                for (int i1 = 0, cellsLength = cells.length; i1 < cellsLength; i1++) {
+                    Cell neighbor = cells[i1];
                     if (!isTruePoint(i, y))
                         return false;
 

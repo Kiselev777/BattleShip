@@ -1,8 +1,69 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #66CDAA;">
+         <children>
+            <Label layoutX="38.0" layoutY="72.0" prefHeight="91.0" prefWidth="166.0" text="My battle">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.419047619047619" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#ff7ef4" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="46.0" layoutY="626.0" prefHeight="143.0" prefWidth="201.0" text="Enemy Battle">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.419047619047619" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#f87171" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Text fill="#e84b23" fontSmoothingType="LCD" layoutX="835.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Чтобы начать игру ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#f22f2f" layoutX="838.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Расставьте корабли">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#ee1d1d" layoutX="838.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="На своём поле">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#cd2424" layoutX="822.0" layoutY="694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="После надписи в верхнем углу" />
+            <Text fill="#dd1f1f" layoutX="799.0" layoutY="711.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Можете стрелять по полю противника" />
+         </children>
+      </AnchorPane>
+   </children>
 </GridPane>

@@ -14,7 +14,7 @@ public class Cell extends Rectangle {
 
 
     public Cell(int x, int y, Battle b) {
-        super(40, 40);
+        super(30, 30);
         setFill(Color.BLACK);
         setStroke(Color.DIMGREY);
         this.x = x;
