@@ -3,11 +3,8 @@ package sample;
 
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.geometry.Point2D;
@@ -137,4 +134,5 @@ public class Battle extends Parent {
         }
         return false;
     }
+
 }
