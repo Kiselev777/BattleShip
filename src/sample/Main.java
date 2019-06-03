@@ -92,6 +92,7 @@ public class Main extends Application {
             }
 
         });
+
         VBox vbox = new VBox(75, myBattle, enemyBattle);
         vbox.setAlignment(Pos.CENTER);
         pane.setCenter(vbox);
