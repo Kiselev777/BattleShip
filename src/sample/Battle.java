@@ -131,6 +131,4 @@ public class Battle extends Parent {
         }
         return false;
     }
-
-
 }

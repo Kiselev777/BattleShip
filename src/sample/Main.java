@@ -75,6 +75,7 @@ public class Main extends Application {
                 computer();
             if (enemyBattle.countShip == 0) {
                 System.out.println("ЭТО ПОБЕДА");
+
                 System.exit(0);
             }
 

@@ -15,7 +15,7 @@ public class Cell extends Rectangle {
 
     public Cell(int x, int y, Battle b) {
         super(30, 30);
-        setFill(Color.BLACK);
+        setFill(Color.WHITE);
         setStroke(Color.DIMGREY);
         this.x = x;
         this.y = y;
@@ -24,7 +24,7 @@ public class Cell extends Rectangle {
 
     public boolean damage() {
         isShoot = true;
-        setFill(Color.WHITE);
+        setFill(Color.BLACK);
         if (ship != null) {
             ship.damage();
             setFill(Color.RED);
